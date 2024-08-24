@@ -82,7 +82,16 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       local servers = {
-        gopls = {},
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          completeFunctionCalls = true,
+          staticcheck = true,
+          vulncheck = true,
+          analyses = {
+            unusedParameters = true,
+          },
+        },
         html = {},
         lua_ls = {
           settings = {

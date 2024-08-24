@@ -11,5 +11,8 @@ return {
         enable_close = false,
       },
     },
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
   },
 }
