@@ -32,13 +32,6 @@ return {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
-      cmp.setup.cmdline('/', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = 'buffer' },
-        },
-      })
-
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
@@ -58,6 +51,7 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+        preselect = cmp.PreselectMode.None,
 
         mapping = cmp.mapping.preset.insert {
 
@@ -99,6 +93,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'buffer', keyword_length = 5 },
         },
       }
     end,
